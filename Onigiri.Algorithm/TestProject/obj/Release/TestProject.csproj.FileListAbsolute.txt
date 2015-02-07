@@ -1,0 +1,7 @@
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\TestProject\bin\Release\TestProject.dll
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\TestProject\bin\Release\TestProject.pdb
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\TestProject\bin\Release\Onigiri.Algorithm.dll
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\TestProject\bin\Release\Onigiri.Algorithm.pdb
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\TestProject\obj\Release\TestProject.csprojResolveAssemblyReference.cache
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\TestProject\obj\Release\TestProject.dll
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\TestProject\obj\Release\TestProject.pdb

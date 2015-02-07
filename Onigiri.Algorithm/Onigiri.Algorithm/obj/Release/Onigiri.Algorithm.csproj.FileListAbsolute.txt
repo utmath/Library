@@ -1,0 +1,5 @@
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\Onigiri.Algorithm\bin\Release\Onigiri.Algorithm.dll
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\Onigiri.Algorithm\bin\Release\Onigiri.Algorithm.pdb
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\Onigiri.Algorithm\obj\Release\Onigiri.Algorithm.csprojResolveAssemblyReference.cache
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\Onigiri.Algorithm\obj\Release\Onigiri.Algorithm.dll
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\Onigiri.Algorithm\obj\Release\Onigiri.Algorithm.pdb

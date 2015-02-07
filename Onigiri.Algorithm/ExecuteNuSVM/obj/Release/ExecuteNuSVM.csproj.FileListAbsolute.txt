@@ -1,0 +1,8 @@
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\ExecuteNuSVM\obj\Release\ExecuteNuSVM.csprojResolveAssemblyReference.cache
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\ExecuteNuSVM\bin\Release\ExecuteNuSVM.exe.config
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\ExecuteNuSVM\bin\Release\ExecuteNuSVM.exe
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\ExecuteNuSVM\bin\Release\ExecuteNuSVM.pdb
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\ExecuteNuSVM\obj\Release\ExecuteNuSVM.exe
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\ExecuteNuSVM\obj\Release\ExecuteNuSVM.pdb
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\ExecuteNuSVM\bin\Release\Onigiri.Algorithm.dll
+C:\Users\onigiri\Dropbox\Library\Onigiri.Algorithm\ExecuteNuSVM\bin\Release\Onigiri.Algorithm.pdb

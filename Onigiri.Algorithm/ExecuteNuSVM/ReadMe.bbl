@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{mlsp}
+M.~Kitamura, A.~Takeda, and S.~Iwata.
+\newblock Exact {SVM} training by {Wolfe's} minimum norm point algorithm.
+\newblock In {\em Proceedings of 2014 IEEE International Workshop on Machine
+  Learning for Signal Processing}, 2014.
+
+\bibitem{scholkopf}
+B.~Sch{\"o}lkopf, A.~J. Smola, R.~C. Williamson, and P.~L. Bartlett.
+\newblock New support vector algorithms.
+\newblock {\em Neural Computation}, 12:1207--1245, 2000.
+
+\bibitem{wolfe}
+P.~Wolfe.
+\newblock Finding the nearest point in a polytope.
+\newblock {\em Mathematical Programming}, 11:128--149, 1976.
+
+\end{thebibliography}

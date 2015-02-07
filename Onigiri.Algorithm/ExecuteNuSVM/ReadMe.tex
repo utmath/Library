@@ -1,0 +1,169 @@
+\documentclass[11pt,a4paper]{article}
+%
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{ascmac}
+\bibliographystyle{plain}
+%
+\setlength{\voffset}{-0.2in}
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+%
+%
+\title{How to Use WolfeSVM}
+\author{onigiri \\ masashi\_kitamura@mist.i.u-tokyo.ac.jp}
+\date{\today}
+\begin{document}
+\maketitle
+%
+%
+\section{Introduction}
+WolfeSVM is a library for solving $\nu$-SVM \cite{scholkopf} by using Wolfe's algorithm \cite{wolfe}.
+The algorithm of WolfeSVM is based on \cite{mlsp}.
+According \cite{mlsp},
+WolfeSVM is suited for the data whose sample size is sufficiently lager than the feature size
+or for the kernel funciton whose rank of kernel matrix is low.
+
+\section{Parameters}
+In order to use WolfeSVM, 
+we should type command like, \\
+\\
+"ExecuteNuSVM.exe -t "C:$\backslash$SVM$\backslash$DataSet$\backslash$covtype" -n 0.85 -N 0.95 -v -0.01". \\
+\\
+We can set parameters by "-key value".
+We explain all of the parameters we can use.
+\begin{itemize}
+\item l : This is the file path for the list of hyper-parameters $\nu$.
+In the file, each line must have exactly one value.
+If we set this parameter, other parameters n, N, v are ignored.
+\item n : This is the minimum value of hyper-parameter $\nu$. The default value is $10^{-9}$.
+\item N : This is the maximum value of hyper-parameter $\nu$. The default value is $1-10^{-9}$
+\item v : This is the step size of $\nu$. Note that this value must be NEGATIVE. The default value is $-0.01$.
+\end{itemize}
+Here are some examples.
+If we set "-n 0.8 -N 0.9 -v -0.05"
+then the program solves $\nu$-SVM with $\nu = $ 0.9, 0.85, 0.8 in this order.
+If we set "-l nuList.txt -n 0.8 -N 0.9 -v 0.05" and if nuList.txt is as: \\
+\\
+0.6\\
+0.8\\
+0.7\\
+0.92\\
+\\
+then the program solves $\nu$-SVM with $\nu = $ 0.6, 0.8, 0.7, 0.92 in this order.
+In this case, "-n 0.8 -N 0.9 -v 0.05" are ignored.
+
+\begin{itemize}
+%\item f : This is the minimum index of features. The default value is $0$.
+%For example, if the features are $1,2,\cdots ,67,68$, we should set "-f 1".
+\item t : This is the file path of training sample. You must set this parameter.
+\item T : This is the file path of test sample.
+If we do not want to check accuracies, we do not need to set this value.
+\item o : This is the file path where the program outpus the results. We do not need set this value unless you need output file.
+\item r : This is the results which we write in the output file.
+The default value is "sfntivco".
+We explain more details in Section \ref{output}.
+%\item s : This is the number of training samples.
+%If we do not know this number, we should not set this,
+%but the programs become faster by setting this value.
+%\item S : This is the number of testing samples.
+%If we do not know this number, we should not set this,
+%but the program become faster by setting this value.
+\item c : This is the number of core for parallelization.
+\item k : This value decides the kernel function.\\
+$ \star ~ 0$ : linear kernel, $k(x,y):=x\cdot y$.\\
+$ \star ~ 1$ : RBF kernel, $k(x,y):=\exp(-\|x-y \| ^2 / \gamma)$. Here, $\gamma$ is a parameter.\\
+$ \star ~ 2$ : polynomial kernel, $k(x,y):=(x\cdot y)^g / d$. Here, $g$ is a parameter and $d$ is the feature size of the dataset.
+
+\end{itemize}
+
+
+
+\section{Outputs}\label{output}
+If we set output file by -o option,
+then some results are written in that file.
+By -r option, we can select the results which we want to output.
+In this section,
+we will explain about this -r option.
+
+\begin{itemize}
+\item s : The number of training sample. The prefix is "Sapmle ".
+\item f : The feature size of training sample. The prefix is "Feature ".
+\item n : The value of hyper-parameter $\nu$. The prefix is "Nu ".
+\item i : The number of iteration for finding the optimal solution. The prefix is "Iteration ".
+\item v : The number of support vectors. The prefix is "\#SupportVector ".
+\item w : The coefficient vector $w$ of classifier funciton $f(x)=w\cdot x + b$. The prefix is "W".
+\item b : The bias term $b$ of classifier funciton $f(x)=w\cdot x + b$. The prefix is "B ".
+\item r : The margin $\rho$. The prefix is "Rho ".
+\item c : The corresponding hyper-parameter $C$ of $C$-SVM in order to obtain same classifier funcion. The prefix is "C ".
+\item o : The optimal value. The prefix is "OptimalValue ".
+\item a : The accuracy. If we do not set test file, then this value is $0$. The prefix is "Accuracy ".
+\item l : The predicting labels for the dataset in test file. The prefix is "Labels".
+\end{itemize}
+
+For example,
+if we set -r sfn,
+then output file is as below.\\
+\\
+Sample 1257\\
+Feature 8\\
+Nu 0.02387\\
+\\
+Not that W and Labels are vectors and these are outputed as below.\\
+\\
+W\\
+0.0765\\
+12.8766\\
+79.0087\\
+Labels\\
+1\\
+0\\
+0\\
+0\\
+1\\
+1\\
+\\
+au
+
+
+
+
+
+
+
+%
+%Format of a resulting file is as follows:\\ \\
+%Nu "$\nu$"\\
+%ExecutionTime "ExecutionTime"\\
+%C "$C$"\\
+%SupportVectors "The number of support vectors"\\
+%OptValue "The distance between two reduced convex hulls"\\
+%b "The coefficient of the discriminant function"\\
+%w\\
+%"$w_{f}$"\\
+%$~~~~$ \vdots \\
+%"$w_{f+k-1}$". \\ \\
+%
+%Here, words which is enclosed by "" is replaced by these values.
+%Note that $f$ is the value defined by -f option
+%and $k$ is the feature size.
+
+\section{Library Usage}
+If you are a developer then you can use WolfeSVM in C\# as library.
+In order to use WolfeSVM,
+please make a instance of NuSVM class.
+Then call Train method.
+Train method returns a instance of NuSVMResult class.
+This has some results of experiments stated previous chapter.
+
+%
+%
+
+\vskip 0.2in
+\bibliography{ReadMe}
+
+
+\end{document}
+
