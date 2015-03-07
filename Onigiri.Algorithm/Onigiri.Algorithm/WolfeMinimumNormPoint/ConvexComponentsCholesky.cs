@@ -98,6 +98,19 @@ namespace Onigiri.Algorithm
             return true;
         }
 
+        private void MultiplyByTransposeAndAddOne(double[] extremeBase, double[] vector)
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                double sum = 1;
+                for (int j = 0; j < N; j++)
+                {
+                    sum += components[i].B[j] * extremeBase[j];
+                }
+                vector[i] = sum;
+            }
+        }
+
         protected override void Delete(int index)
         {
             int endCol = Count - 1;

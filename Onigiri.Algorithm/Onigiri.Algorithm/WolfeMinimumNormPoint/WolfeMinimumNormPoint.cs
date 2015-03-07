@@ -81,10 +81,10 @@ namespace Onigiri.Algorithm
                 //CheckMinusComionets();
                 //CheckOrder();
 
-                //if (HeuristicStop() || X.Length == 0)
-                //{
-                //    break;
-                //}
+                if (HeuristicStop() || X.Length == 0)
+                {
+                    break;
+                }
                 
                 double nextNorm = components.CalcSquareKernel(X);
                 if (currentNorm <= nextNorm)
